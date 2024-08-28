@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from .abstract_models import BaseModel as bm
+from .abstract_models import BaseModel
 
 
 User = get_user_model()
 
 
-class Category(bm):
+class Category(BaseModel):
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     description = models.TextField(verbose_name='Описание')
     slug = models.SlugField(
@@ -23,7 +23,7 @@ class Category(bm):
         verbose_name_plural = 'Категории'
 
 
-class Location(bm):
+class Location(BaseModel):
     name = models.CharField(max_length=256, verbose_name='Название места')
 
     class Meta:
@@ -34,7 +34,7 @@ class Location(bm):
         return self.name
 
 
-class Post(bm):
+class Post(BaseModel):
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(
