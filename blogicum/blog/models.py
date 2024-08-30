@@ -1,5 +1,7 @@
+"""Blog/models."""
 from django.db import models
 from django.contrib.auth import get_user_model
+
 from .abstract_models import BaseModel
 
 
@@ -7,6 +9,8 @@ User = get_user_model()
 
 
 class Category(BaseModel):
+    """Category."""
+
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     description = models.TextField(verbose_name='Описание')
     slug = models.SlugField(
@@ -24,6 +28,8 @@ class Category(BaseModel):
 
 
 class Location(BaseModel):
+    """Location."""
+
     name = models.CharField(max_length=256, verbose_name='Название места')
 
     class Meta:
@@ -35,6 +41,8 @@ class Location(BaseModel):
 
 
 class Post(BaseModel):
+    """Post."""
+
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(

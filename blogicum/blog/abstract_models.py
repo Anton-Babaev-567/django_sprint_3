@@ -1,7 +1,11 @@
+"""Blog/abstract_models."""
 from django.db import models
 
+CHAR_PER_MESSAGE = 20
 
 class BaseModel(models.Model):
+    """BaseModel"""
+
     is_published = models.BooleanField(
         default=True,
         verbose_name='Опубликовано',
@@ -13,7 +17,7 @@ class BaseModel(models.Model):
     )
 
     def __str__(self):
-        return self.title[:20]
+        return self.title[:CHAR_PER_MESSAGE]
 
     class Meta:
         abstract = True
