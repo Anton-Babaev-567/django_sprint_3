@@ -3,6 +3,7 @@ from django.db import models
 
 CHAR_PER_MESSAGE = 20
 
+
 class BaseModel(models.Model):
     """BaseModel"""
 
